@@ -1,0 +1,125 @@
+.dashboards{
+    display: flex;
+    background-color: black;
+    grid-template-columns: 1fr 4fr;
+}
+.content{
+    overflow: auto;
+    height: 100vh;
+}
+.userInfoCont{ 
+    max-width: 80%;
+    margin-top: 1rem;
+}
+.sidebar {
+    width: 100%;
+    background-color: #fff;
+    border-right: 1px solid #eaeaea;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 98vh;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+    position: relative;
+    left: 0;
+}
+
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.userInfo h2 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.userInfo button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    border-radius: 4px;
+}
+
+.userInfo button:hover {
+    background-color: #e0e0e0;
+}
+.sidenav{
+    position: relative; 
+   
+    left: 8%; 
+  
+    margin-top: 5rem;
+    padding: 2rem;
+
+}
+
+
+
+.sidenav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidenav ul li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Adds vertical padding */
+    border-bottom: 1px solid #eaeaea; /* Adds a border between items */
+    cursor: pointer;
+}
+
+.sidenav ul li:hover {
+    background-color: #f5f5f5; /* Highlight background on hover */
+}
+
+.sidenav ul li p {
+    margin: 0 0 0 16px; /* Space between icon and text */
+    font-size: 16px;
+    color: #333;
+}
+
+.sidenav ul li svg {
+    font-size: 1.5rem; /* Icon size */
+    color: #7d7d7d;
+}
+
+.sidenav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    
+    margin-left: 1rem;
+}
+
+.sidenav ul li a:hover {
+    color: #0070f3;
+}
+
+.logoutbtn{
+    position: absolute;
+    bottom: 2rem;
+    width: 70%;
+    padding: 0.3rem;
+    background-color: #6b47dc;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+    cursor: pointer;
+    
+}
+.logoutbtn:hover{
+    background-color: #573bb4;
+}

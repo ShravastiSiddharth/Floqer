@@ -1,21 +1,15 @@
-// src/components/Dashboard.js
-import React, { useState } from 'react';
-import { Layout, Row, Col, Typography, Menu, Button } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import React from 'react';
+import { Layout, Row, Col } from 'antd';
 import SalaryChart from './SalaryChart';
 import SalaryTable from './SalaryTable';
 import Sidebar from './Sidebar';
 import styles from '../styles/Sidebar.module.css';
 
-const { Header, Sider, Content } = Layout;
-const { Title } = Typography;
+const { Content } = Layout;
+
 
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapse = () => {
-    setCollapsed(!collapsed);
-  };
+ 
 
   return (
     <>

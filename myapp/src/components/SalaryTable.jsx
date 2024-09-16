@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Typography, Spin, Alert } from 'antd';
-import axios from 'axios';
+import axiosInstance from '../config/axiosInstance';
 
 const { Title } = Typography;
 
@@ -9,14 +9,14 @@ const SalaryTable = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [jobTitlesData, setJobTitlesData] = useState([]); 
-  const [jobTitlesLoading, setJobTitlesLoading] = useState(false); // To handle loading for the second table
+  const [jobTitlesLoading, setJobTitlesLoading] = useState(false); 
   const [jobTitlesError, setJobTitlesError] = useState(null);
-  const [year, setYear] = useState(''); // To handle error for job titles API
+  const [year, setYear] = useState(''); 
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/avgsalary');
+        const response = await axiosInstance.get('/avgsalary');
         setData(response.data.data);
       } catch (err) {
         setError(err.message);
@@ -28,16 +28,16 @@ const SalaryTable = () => {
     fetchData();
   }, []);
 
-  // Function to handle row click and fetch job titles
+  
   const onRowClick = async (record) => {
     setJobTitlesLoading(true);
     setJobTitlesError(null);
     setYear(record._id)
     try {
-      const response = await axios.post('http://localhost:5000/api/job-titles', {
-        year: record._id, // Send the clicked year
+      const response = await axiosInstance.post('/job-titles', {
+        year: record._id,
       });
-      setJobTitlesData(response.data.jobTitles); // Set the job titles data
+      setJobTitlesData(response.data.jobTitles);
     } catch (err) {
       setJobTitlesError(err.message);
     } finally {
@@ -63,7 +63,7 @@ const SalaryTable = () => {
       dataIndex: 'averageSalary',
       key: 'averageSalary',
       sorter: (a, b) => a.averageSalary - b.averageSalary,
-      render: (text) => `$${text.toLocaleString()}`, // Format salary with a dollar sign
+      render: (text) => `$${text.toLocaleString()}`, 
     },
   ];
 
@@ -72,7 +72,7 @@ const SalaryTable = () => {
       title: 'Index',
       dataIndex: 'index',
       key: 'index',
-      render: (_, __, index) => index + 1, // Render index starting from 1
+      render: (_, __, index) => index + 1, 
     },
     {
       title: 'Job Title',
@@ -97,11 +97,11 @@ const SalaryTable = () => {
         columns={columns}
         dataSource={data}
         rowKey="_id"
-        pagination={false} // Removed pagination for the main table
+        pagination={false} 
         bordered
-        scroll={{ x: 800 }} // For horizontal scrolling on smaller screens
+        scroll={{ x: 800 }} 
         onRow={(record) => ({
-          onClick: () => onRowClick(record), // Handle row click
+          onClick: () => onRowClick(record), 
         })}
       />
 
